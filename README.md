@@ -15,6 +15,11 @@ A Typescript re-write/refactor/overhaul of a space invaders codepen I found
 - improvements for optimisation/memory leaks (entity recycling, etc)
 - 4.0kB compressed
 
+## TODO
+- [ ] add space ships
+- [ ] add barriers
+- [ ] allow configuring colors
+
 ## Installation
 1. TBA
 
