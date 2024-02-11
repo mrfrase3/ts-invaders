@@ -33,8 +33,8 @@ jobs:
           - tar -czvf example.tar.gz --directory example --exclude=.git --exclude=.github .
       
       - name: Deploy
-        uses: git
-        with: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact
+        with:
           name:
             description: 'Artifact name'
             required: false
