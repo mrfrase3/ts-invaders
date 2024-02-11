@@ -15,30 +15,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        cache: 'yarn'
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
 
-    - name: Install dependencies
-      shell: bash
-      run: yarn install
+      - name: Install dependencies
+        shell: bash
+        run: yarn install
 
-    - name: Build
-      shell: bash
-      run: 
-        - yarn build
-        # - echo "example.com" > example/CNAME
-        - tar -czvf example.tar.gz --directory example --exclude=.git --exclude=.github .
-    
-    - name: Deploy
-      uses: git
-      with: actions/upload-pages-artifact
-        name:
-          description: 'Artifact name'
-          required: false
-          default: 'github-pages'
-        path: example.tar.gz
+      - name: Build
+        shell: bash
+        run: 
+          - yarn build
+          # - echo "example.com" > example/CNAME
+          - tar -czvf example.tar.gz --directory example --exclude=.git --exclude=.github .
+      
+      - name: Deploy
+        uses: git
+        with: actions/upload-pages-artifact
+          name:
+            description: 'Artifact name'
+            required: false
+            default: 'github-pages'
+          path: example.tar.gz
 
 
