@@ -27,10 +27,9 @@ jobs:
 
       - name: Build
         shell: bash
-        run: 
-          - yarn build
-          # - echo "example.com" > example/CNAME
-          - tar -czvf example.tar.gz --directory example --exclude=.git --exclude=.github .
+        run: |
+          yarn build
+          tar -czvf example.tar.gz --directory example --exclude=.git --exclude=.github .
       
       - name: Deploy
         uses: actions/upload-artifact@v4
