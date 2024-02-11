@@ -34,10 +34,7 @@ jobs:
       - name: Deploy
         uses: actions/upload-artifact@v4
         with:
-          name:
-            description: 'Artifact name'
-            required: false
-            default: 'github-pages'
+          name: 'Example Site'
           path: example.tar.gz
 
 
