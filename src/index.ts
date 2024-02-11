@@ -24,10 +24,11 @@ export default class InvadersGame {
 
   /**
    * Loads the sprites for the game.
+   * @private
    * @returns {Promise<void>} A promise that resolves when the sprites are loaded.
    */
-  async loadSprites(): Promise<void> {
-    const spriteUrl = this.config.spriteUrl || './sprites.png';
+  async _loadSprites(): Promise<void> {
+    const spriteUrl = this.config.spriteUrl || 'https://mrfrase3.github.io/ts-invaders/sprites.png';
     const sprites = new Image();
     sprites.src = spriteUrl;
     await new Promise((resolve) => {
@@ -41,7 +42,7 @@ export default class InvadersGame {
    * @returns {Promise<void>} A promise that resolves when the game is started.
    */
   async start(): Promise<void> {
-    await this.loadSprites();
+    await this._loadSprites();
     this.state = new InvaderState(this.config, this.canvas, this.sprites!, this.sprites!);
     this.state.init();
     this.state.animate();

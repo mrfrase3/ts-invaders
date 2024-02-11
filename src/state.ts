@@ -8,10 +8,10 @@ import { EntityPool } from './utils/entity-pool';
 import { InvadersHUD } from './utils/hud';
 
 const defaultScores: ScoreMap = {
-  'alien-kill': 25,
-  'player-kill': 0,
-  'wave-clear': 500,
-  'wave-modifier': 1,
+  'alien-kill': 25, // when you kill an alien
+  'player-kill': 0, // when an alien kills you
+  'wave-clear': 500, // when you complete a wave (get rid of all visible aliens)
+  'wave-modifier': 1, // increases alien-kill each wave by a multiple (kill * wave * modifier) 0 to disable
 };
 
 const defaultScoreKey = 'invaders-high-score';
@@ -204,7 +204,7 @@ export class InvaderState {
    */
   updateScore(type: ScoreType) {
     const waveModifier = this.config.scores?.['wave-modifier'] || defaultScores['wave-modifier'];
-    const modifier = this.wave * waveModifier;
+    const modifier = this.wave * waveModifier || 1;
     let score = this.config.scores?.[type] || defaultScores[type];
     if (type === 'alien-kill') {
       score *= modifier;
@@ -259,7 +259,7 @@ export class InvaderState {
       case 'right':
         return this.config.rightKeys || ['ArrowRight', 'KeyD'];
       case 'fire':
-        return this.config.fireKeys || ['Space'];
+        return this.config.fireKeys || ['Space', 'KeyW', 'ArrowUp'];
       default:
         return [];
     }
