@@ -1,6 +1,6 @@
 {
-  "name": "ts-invaders",
-  "version": "1.0.0",
+  "name": "@mrfrase3/ts-invaders",
+  "version": "0.1.0",
   "description": "browser-based space invaders",
   "main": "dist/index.js",
   "module": "dist/index.min.mjs",
@@ -12,6 +12,17 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrfrase3/ts-invaders.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrfrase3/ts-invaders/issues"
+  },
+  "homepage": "https://mrfrase3.github.io/ts-invaders/",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.ts test/*.ts",
     "lint": "eslint",
