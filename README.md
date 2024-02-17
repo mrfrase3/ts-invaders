@@ -1,31 +1,68 @@
 # 👾 TS Invaders 👾
 
 ## Description
-A Typescript re-write/refactor/overhaul of a space invaders codepen I found
+A Typescript re-write/refactor/overhaul of a space invaders gist/codepen I found
 
 [Original CodePen](https://codepen.io/anthdeldev/pen/BHuGL) by [Anthony Del Ciotto](https://codepen.io/anthdeldev)
+
 [Gist](https://gist.github.com/insipx/c3d3eae31016c1e16ba6bd1a7e19b2fe) By insipx
 
 ### [Example](https://mrfrase3.github.io/ts-invaders/)
 
 ## Features
-- fully typed
-- importable by other projects, just feed it a canvas element
-- fairly configurable and simple to use
-- improvements for optimisation/memory leaks (entity recycling, etc)
+- Fully typed
+- Importable by other projects, just feed it a canvas element
+- Fairly configurable and simple to use
+- Improvements for optimisation/memory leaks (entity recycling, etc)
 - 4.0kB compressed
 
 ## TODO
-- [ ] add space ships
-- [ ] add barriers
-- [ ] allow configuring colors
+- [ ] Add space ships
+- [ ] Add barriers
+- [ ] Allow configuring colors
 
 ## Installation
-1. TBA
+
+### npm
+```bash
+npm i @mrfrase3/ts-invaders
+```
+
+### yarn
+```bash
+yarn add @mrfrase3/ts-invaders
+```
+
+### pnpm
+```bash
+pnpm add @mrfrase3/ts-invaders
+```
+
+### Browser
+Versioned: (replace `<version>` with the latest release version)
+```html
+<script src="
+  https://unpkg.com/@mrfrase3/ts-invaders@<version>/dist/index.umd.min.js
+"></script>
+```
+
+Latest: (can break in the future)
+```html
+<script src="
+  https://unpkg.com/@mrfrase3/ts-invaders/dist/index.umd.min.js
+"></script>
+```
 
 ## Usage
+```html
+<canvas id="game-canvas" width="640" height="640"></canvas>
+```
+**Note:** The canvas will be transparent, and the default assets are white.
+make sure you set the background to be a dark color, e.g. `#121212`
+
 ```ts
-import TSInvaders from 'ts-invaders';
+// you don't need to import if using the browser install
+import TSInvaders from '@mrfrase3/ts-invaders';
 
 const canvas = document.getElementById('game-canvas');
 const game = new TSInvaders(canvas, { /* config go here */ });
@@ -35,6 +72,7 @@ game.start();
 game.destroy();
 
 ```
+
 You can check out the [example code here](https://github.com/mrfrase3/ts-invaders/blob/main/example/index.html)
 
 The main class has the following methods:
